@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.util.List;
 
 @Entity // As anotations elas vão ler ou até fechar as chaves ou até o ;
@@ -12,10 +13,10 @@ import java.util.List;
 @Table(name = "tb_missoes") // A anotation table transforma isso em uma tabela
 // tudo que esta dentro da classe MissoesModel é uma entidade
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 
+@NoArgsConstructor // construtor sem argumentos
+@AllArgsConstructor // construtor com argumentos
+@Data // criar os getter e setters
 public class MissoesModel {
 
     @Id
