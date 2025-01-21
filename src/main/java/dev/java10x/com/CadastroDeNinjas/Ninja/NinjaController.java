@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping
+@RestController // avisar ao java que essa classe é do tipo controller
+@RequestMapping // define as rotas
 
 
 public class NinjaController {
