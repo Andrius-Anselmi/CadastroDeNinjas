@@ -23,7 +23,7 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String dificulade;
+    private String dificuldade;
 
     //@OneToMany Uma missao pode ter varios ninja
     // Toda vez que usarmos um relacionamento de tabelas usaremos o mappedBy para mapear as tabelas
