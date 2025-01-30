@@ -34,7 +34,7 @@ public class NinjaModel{
     private  int idade ;
 
 
-    // @ManyToOne Um ninja só pode ter uma unica missao
+    // @ManyToOne Um ninja só pode ter uma unica missao ou muitos ninjas podem ter uma unica missao
     @ManyToOne
     //JoinColumn serve pra gente unir as tabelas de cadastro ninja e cadastro de missoes
     @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira

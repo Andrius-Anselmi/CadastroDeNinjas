@@ -6,7 +6,7 @@ import  org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // avisar ao java que essa classe é do tipo controller
-@RequestMapping("/ninja") // define as rotas
+@RequestMapping("/ninjas") // define as rotas
 
 
 public class NinjaController {
@@ -18,36 +18,31 @@ public class NinjaController {
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public String AdicionarNinja() {
-
+    public String criarNinja() {
         return "Ninja criado";
     }
-
-    //Mostrar todos os Ninjas ( READ)
+    //Mostrar todos os Ninjas (READ)
     @GetMapping("/todos")
-    public String MostrarTodosOsNinja() {
-
-        return "Exibindo ninjas";
+    public String mostratTodosOsNinja() {
+        return "Mostrar Ninja";
     }
 
-    //Mostrar ninjas por ID (READ)
-    @GetMapping("/todosID")
-    public String MostrarTodosOsNinjasPorID() {
-
-        return "Exibindo ninjas por ID";
+    //Mostrar ninja por ID (READ)
+    @GetMapping("/listarID")
+    public String mostratTodosOsNinjaPorId() {
+        return "Mostrar Ninja por ID";
     }
 
     //Alterar dados dos Ninjas (UPDATE)
-    @PutMapping("/alterar")
-    public String AlterarNinjaPorId() {
-
-        return "Alterar ninja por ID";
+    @PutMapping("/alterarID")
+    public String alterarNinjaPorId() {
+        return "Ninja alterado";
     }
 
-    //Deletar NINJA (DELETE)
+    //Deletar Ninja (DELETE)
     @DeleteMapping("/deletar")
-    public String DeletarNinjaPorid() {
-
-        return "Deletar ninja por ID";
+    public String deletarNinja() {
+        return "ninja criado";
     }
+
 }
