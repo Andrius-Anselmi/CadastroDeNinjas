@@ -5,11 +5,19 @@ import  org.springframework.web.bind.annotation.RequestMapping;
 import  org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController // avisar ao java que essa classe é do tipo controller
 @RequestMapping("/ninjas") // define as rotas
 
 
 public class NinjaController {
+
+    private NinjaService ninjaService; //
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas() {
@@ -23,8 +31,8 @@ public class NinjaController {
     }
     //Mostrar todos os Ninjas (READ)
     @GetMapping("/todos")
-    public String mostratTodosOsNinja() {
-        return "Mostrar Ninja";
+    public List<NinjaModel> listarNinjas() {
+        return ninjaService.listarNinjas();
     }
 
     //Mostrar ninja por ID (READ)
