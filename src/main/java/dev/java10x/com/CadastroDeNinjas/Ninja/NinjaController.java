@@ -6,12 +6,17 @@ import  org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Scanner;
 
 @RestController // avisar ao java que essa classe é do tipo controller
 @RequestMapping("/ninjas") // define as rotas
 
 
 public class NinjaController {
+
+    long id;
+
+    Scanner teclado = new Scanner(System.in);
 
     private NinjaService ninjaService; //
 
@@ -36,9 +41,9 @@ public class NinjaController {
     }
 
     //Mostrar ninja por ID (READ)
-    @GetMapping("/listarID")
-    public String mostratTodosOsNinjaPorId() {
-        return "Mostrar Ninja por ID";
+    @GetMapping("/listarID/{id}")
+    public NinjaModel mostratTodosOsNinjaPorId(@PathVariable Long id) {
+        return ninjaService.listarNinjasPorID(id);
     }
 
     //Alterar dados dos Ninjas (UPDATE)
