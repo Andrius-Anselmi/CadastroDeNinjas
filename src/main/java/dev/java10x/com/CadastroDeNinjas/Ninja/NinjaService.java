@@ -10,7 +10,6 @@ public class NinjaService {
 
     private NinjaRepository ninjaRepository;
 
-    private NinjaModel ninja;
 
     public NinjaService(NinjaRepository ninjaRepository) {
         this.ninjaRepository = ninjaRepository;
@@ -27,6 +26,11 @@ public class NinjaService {
 
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
+    }
+
+    public NinjaModel criarNinja(NinjaModel ninja) {
+
+        return ninjaRepository.save(ninja);
     }
 
 }

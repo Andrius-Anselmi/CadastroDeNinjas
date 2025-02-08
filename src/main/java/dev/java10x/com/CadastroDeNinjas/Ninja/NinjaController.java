@@ -1,4 +1,5 @@
 package dev.java10x.com.CadastroDeNinjas.Ninja;
+import jakarta.annotation.PreDestroy;
 import  org.springframework.web.bind.annotation.GetMapping;
 import  org.springframework.web.bind.annotation.PutMapping;
 import  org.springframework.web.bind.annotation.RequestMapping;
@@ -6,17 +7,12 @@ import  org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Scanner;
 
 @RestController // avisar ao java que essa classe é do tipo controller
 @RequestMapping("/ninjas") // define as rotas
 
 
 public class NinjaController {
-
-    long id;
-
-    Scanner teclado = new Scanner(System.in);
 
     private NinjaService ninjaService; //
 
@@ -31,17 +27,17 @@ public class NinjaController {
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public String criarNinja() {
-        return "Ninja criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninjaModel) {
+        return ninjaService.criarNinja(ninjaModel);
     }
     //Mostrar todos os Ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
     }
 
     //Mostrar ninja por ID (READ)
-    @GetMapping("/listarID/{id}")
+    @GetMapping("/listar/{id}")
     public NinjaModel mostratTodosOsNinjaPorId(@PathVariable Long id) {
         return ninjaService.listarNinjasPorID(id);
     }
