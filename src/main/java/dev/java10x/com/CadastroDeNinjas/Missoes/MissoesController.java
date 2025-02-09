@@ -17,9 +17,8 @@ public class MissoesController {
 
     //POST -- Mandar uma requisaicao para criar as missoes (CREATE)
     @PostMapping("/criar")
-    public String criarMissao(){
-
-        return "missoes criada";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missoes){
+        return missoesService.criarMissão(missoes);
     }
 
     // GET -- Mandar uma requisicao para mostrar as missoes (READ)
@@ -28,7 +27,7 @@ public class MissoesController {
         return missoesService.listarMissoes();
     }
 
-    //Mostrar Missoes por ID (READ)
+    // GET -- Mandar uma requisicao para mostrar as missoes por ID (READ)
     @GetMapping("/listar/{id}")
     public MissoesModel listarMissoesPorId(@PathVariable Long id) {
 
@@ -42,11 +41,11 @@ public class MissoesController {
         return "missoes alteradas";
     }
 
-    //DELETE -- Mandar uma requisicao para deletar as missoes (DELETE)
-    @DeleteMapping("/deletar")
-    public String deletarMissoesPorId() {
-
-        return "missoes deletadas com sucesso";
+    //DELETE -- Mandar uma requisicao para deletar as missoes por ID (DELETE)
+    @DeleteMapping("/deletar/{id}")
+    public String deletarMissoesPorId(@PathVariable Long id) {
+        missoesService.deletarMissoes(id);
+        return "missão deletada com sucesso";
     }
 
 }
