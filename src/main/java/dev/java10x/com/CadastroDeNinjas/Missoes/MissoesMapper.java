@@ -1,6 +1,5 @@
 package dev.java10x.com.CadastroDeNinjas.Missoes;
 
-import jakarta.persistence.Entity;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,7 +9,7 @@ public class MissoesMapper {
         MissoesModel  missoesModel = new MissoesModel();
         missoesModel.setId(missoesDTO.getId());
         missoesModel.setNome(missoesDTO.getNome());
-        missoesModel.setDificuldade(missoesModel.getDificuldade());
+        missoesModel.setDificuldade(missoesDTO.getDificuldade());
         missoesModel.setNinja(missoesDTO.getNinja());
 
         return missoesModel;
