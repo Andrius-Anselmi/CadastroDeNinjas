@@ -17,35 +17,33 @@ public class MissoesController {
 
     //POST -- Mandar uma requisaicao para criar as missoes (CREATE)
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missoes){
-        return missoesService.criarMissão(missoes);
+    public MissoesDTO criarMissao(@RequestBody MissoesDTO missoes){
+        return missoesService.criarMissao(missoes);
     }
 
     // GET -- Mandar uma requisicao para mostrar as missoes (READ)
     @GetMapping("/listar")
-    public List<MissoesModel> listarMissoes() {
+    public List<MissoesDTO> listarMissoes() {
         return missoesService.listarMissoes();
     }
 
     // GET -- Mandar uma requisicao para mostrar as missoes por ID (READ)
     @GetMapping("/listar/{id}")
-    public MissoesModel listarMissoesPorId(@PathVariable Long id) {
+    public MissoesDTO listarMissoesPorId(@PathVariable Long id) {
 
         return missoesService.listarMissoesPorId(id);
     }
 
     //PUT -- Mandar uma requisicao para alterar missoes (UPDATE)
-    @PutMapping("/alterar")
-    public String alterarMissaoPorId() {
-
-        return "missoes alteradas";
+    @PutMapping("/alterar/{id}")
+    public MissoesDTO alterarMissaoPorId(@RequestBody MissoesDTO missoesDTO, @PathVariable Long id) {
+        return missoesService.alterarMissao(id,missoesDTO);
     }
 
     //DELETE -- Mandar uma requisicao para deletar as missoes por ID (DELETE)
     @DeleteMapping("/deletar/{id}")
-    public String deletarMissoesPorId(@PathVariable Long id) {
+    public void deletarMissoesPorId(@PathVariable Long id) {
         missoesService.deletarMissoes(id);
-        return "missão deletada com sucesso";
     }
 
 }
