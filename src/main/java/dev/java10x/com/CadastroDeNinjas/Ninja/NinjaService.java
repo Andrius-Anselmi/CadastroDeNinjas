@@ -51,7 +51,7 @@ public class NinjaService {
     //Alterar Ninja por ID
     public NinjaDTO alterarNinja(Long id, NinjaDTO ninjaDTO) {
         Optional<NinjaModel> ninjaExistente = ninjaRepository.findById(id); // Optional --> retorna ou um objeto ou nada , junto com o findById, que faz essa busca
-        // se o id existit o optional vai retornar algo, caso contrario não retorna nada
+        // se o id existir o optional vai retornar algo, caso contrario não retorna nada
         if(ninjaExistente.isPresent()) { // verifica se o Optional retornou alguma coisa
             NinjaModel ninjaAtualizado = ninjaMapper.map(ninjaDTO);
             ninjaAtualizado.setId(id); // SOBREESCREVER O ID
