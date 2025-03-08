@@ -16,7 +16,7 @@ import java.util.List;
 
 public class NinjaController {
 
-    private NinjaService ninjaService; //
+    private final NinjaService ninjaService; //
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;

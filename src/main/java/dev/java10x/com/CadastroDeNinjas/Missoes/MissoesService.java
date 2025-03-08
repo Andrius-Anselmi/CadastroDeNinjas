@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class MissoesService {
 
     private final MissoesRepository missoesRepository;
-    private final MissoesMapper missoesMapper;
+    private  final MissoesMapper missoesMapper;
 
     public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
